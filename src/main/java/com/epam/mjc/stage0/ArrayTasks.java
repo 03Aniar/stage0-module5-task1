@@ -1,8 +1,6 @@
 package com.epam.mjc.stage0;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
+
 
 /**
  * Here are the tasks for working with the arrays.
@@ -15,7 +13,8 @@ public class ArrayTasks {
      * Return a String[] array that will list all the seasons of the year, starting with winter.
      */
     public String[] seasonsArray() {
-        return new String[]{"winter", "spring", "summer", "autumn"};
+        String[] x = new String[]{ "winter", "spring", "summer", "autumn"};
+        return x;
     }
 
     /**
@@ -45,7 +44,7 @@ public class ArrayTasks {
      * arr = [5, -3, -4] -> sum = -2
      */
     public int totalSum(int[] arr) {
-        return Arrays.stream(arr).sum();
+        return 1;
     }
 
     /**
@@ -58,8 +57,7 @@ public class ArrayTasks {
      * arr = [5, -3, -4],   number = 10    ->  -1
      */
     public int findIndexOfNumber(int[] arr, int number) {
-        int x = Arrays.binarySearch(arr, number);
-        return x >= 0 ? x : -1;
+        return -1;
     }
 
     /**
@@ -95,8 +93,7 @@ public class ArrayTasks {
      * arr = [1, 2]         -> [1, 2]
      */
     public int[] getOnlyPositiveNumbers(int[] arr) {
-        return         Arrays.stream(arr).filter(x -> x > 0).toArray();
-
+return null;
     }
 
     /**
@@ -110,6 +107,28 @@ public class ArrayTasks {
      * arr = [[5, 4], [7]]       -> [[7], [4, 5]]
      */
     public int[][] sortRaggedArray(int[][] arr) {
-        return new int[][]{};
+
+            for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr[i].length; j++) {
+                    for (int k = j + 1; k < arr[i].length; k++) {
+                        if (arr[i][j] > arr[i][k]) {
+                            int temp = arr[i][k];
+                            arr[i][k] = arr[i][j];
+                            arr[i][j] = temp;
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < arr.length; i++) {
+                for (int j = 0; j < arr.length - 1; j++) {
+                    if (arr[j].length > arr[j + 1].length) {
+                        int[] temp_arr = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp_arr;
+                    }
+                }
+            }
+            return arr;
+
     }
 }
